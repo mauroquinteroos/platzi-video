@@ -1,7 +1,37 @@
-body {
-  margin: 0;
-  padding: 0;
+// Globals
+*, *::before, *::after {
+  box-sizing: border-box;
 }
-h1 {
-  color: #000000;
+body{
+  background: linear-gradient(#21c08b, #8f57fd);
+  background-repeat: no-repeat;
+  font-family: Arial;
+  margin: 0;
+  min-height: 100vh;
+}
+p{
+  margin: 0;
+}
+h2{
+  margin-top: 0;
+}
+
+::placeholder{
+  color: #fff;
+  font-family: Arial;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+.title{
+  color: #fff;
+  font-size: 1.2em;
+  margin-left: 20px;
+  margin-top: 60px;
+}
+.title:nth-of-type(1){
+  margin-top: 0;
 }
