@@ -1,8 +1,10 @@
 .categories-title {
   width: 100%;
   padding-left: 1.875rem;
-  margin-top: -1rem;
-  position: absolute;
+  margin-top: 3.75rem;
   font-size: 1rem;
   color: #fff;
+}
+.categories:nth-of-type(2) .categories-title{
+  margin-top: 0;
 }

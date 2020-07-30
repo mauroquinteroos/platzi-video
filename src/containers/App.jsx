@@ -18,7 +18,17 @@ const App = () => (
   <>
     <Header />
     <Search />
-    <Categories>
+    <Categories title='Action'>
+      <Carousel>
+        {Items.map((value, key) => (<CarouselItem key={key} />))}
+      </Carousel>
+    </Categories>
+    <Categories title='Comedy'>
+      <Carousel>
+        {Items.map((value, key) => (<CarouselItem key={key} />))}
+      </Carousel>
+    </Categories>
+    <Categories title='Horror'>
       <Carousel>
         {Items.map((value, key) => (<CarouselItem key={key} />))}
       </Carousel>
