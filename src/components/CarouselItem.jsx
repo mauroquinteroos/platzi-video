@@ -4,21 +4,20 @@ import React from 'react';
 import '../assets/styles/components/CarouselItem.scss';
 import playIcon from '../assets/static/play-button.svg';
 import addIcon from '../assets/static/add-button.svg';
-import mainImage from '../assets/static/image.jpg';
 
-const CarouselItem = () => (
+const CarouselItem = ({ cover, title, year, contentRating, duration, slug }) => (
   <div className='carousel-item'>
-    <img className='item-img' src={mainImage} alt='video' />
+    <img className='item-img' src={cover} alt={title} />
     <div className='item-details'>
       <div className='item-icon'>
         <img src={playIcon} width='20px' alt='play icon' />
         <img src={addIcon} width='20px' alt='plus icon' />
       </div>
-      <p className='item-title'>Titulo descriptivo</p>
+      <p className='item-title'>{slug}</p>
       <p className='item-subtitle'>
-        <span>2019</span>
-        <span>+16</span>
-        <span>114 min.</span>
+        <span>{year}</span>
+        <span>{contentRating}</span>
+        <span>{duration}</span>
       </p>
     </div>
   </div>
