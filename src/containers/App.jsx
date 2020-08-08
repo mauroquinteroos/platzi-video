@@ -1,5 +1,10 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/jsx-curly-newline */
+/* eslint-disable function-paren-newline */
+/* eslint-disable indent */
+/* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 // Components
 import Header from '../components/Header';
@@ -12,53 +17,30 @@ import Footer from '../components/Footer';
 // Styles
 import '../assets/styles/App.scss';
 
+// Custom Hooks
+import useInitialState from '../hooks/useInitialState';
+
+const URL = 'http://localhost:3000/initialState';
+
 const App = () => {
 
-  const [videos, setVideos] = useState({
-    mylist: [],
-    trends: [],
-    originals: [],
-  });
-
-  useEffect(() => {
-    async function getData() {
-      try {
-        const response = await fetch('http://localhost:3000/initialState');
-        const data = await response.json();
-        setVideos(data);
-      } catch (err) {
-        console.error(`Error message: ${err.message}`);
-      }
-    };
-
-    getData();
-  }, []);
+  const [videos, categories] = useInitialState(URL);
 
   return (
     <>
       <Header />
       <Search />
-      {videos.mylist.length > 0 && (
-        <Categories title='My List'>
-          <Carousel>
-            {videos.mylist.map((item) => <CarouselItem key={item.id} {...item} />)}
-          </Carousel>
-        </Categories>
-      )}
-      {videos.trends.length > 0 && (
-        <Categories title='Trends'>
-          <Carousel>
-            {videos.trends.map((item) => <CarouselItem key={item.id} {...item} />)}
-          </Carousel>
-        </Categories>
-      )}
-      {videos.originals.length > 0 && (
-        <Categories title='Originals'>
-          <Carousel>
-            {videos.originals.map((item) => <CarouselItem key={item.id} {...item} />)}
-          </Carousel>
-        </Categories>
-      )}
+      {videos.length === 0 ? <h1>Loading ...</h1> : (
+        categories.map((category, index) => (
+          videos[category].length > 0 && (
+            <Categories key={index} title={category}>
+              <Carousel>
+                {videos[category].map((item) => <CarouselItem key={item.id} {...item} />)}
+              </Carousel>
+            </Categories>
+          )
+        )))
+      }
       <Footer />
     </>
   );

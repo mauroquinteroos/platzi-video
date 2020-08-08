@@ -1,4 +1,6 @@
+/* eslint-disable react/no-typos */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Styles
 import '../assets/styles/components/CarouselItem.scss';
@@ -22,5 +24,14 @@ const CarouselItem = ({ cover, title, year, contentRating, duration, slug }) => 
     </div>
   </div>
 );
+
+CarouselItem.propTypes = {
+  cover: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  year: PropTypes.number,
+  contentRating: PropTypes.string,
+  duration: PropTypes.number,
+  slug: PropTypes.string,
+};
 
 export default CarouselItem;
