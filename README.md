@@ -7,8 +7,8 @@ Proyecto del [Curso Práctico de React.js](https://platzi.com/clases/react-ejs/)
     `cd PlatziVideo`
 2. Instala las dependencias
     `yarn` o `npm install`
-3. Instala json-server globalmente (debes hacerlo como administrador):
-    `sudo npm install -g json-server`
+3. Instala json-server globalmente
+    `npm install -g json-server`
 4. Corre el servidor del Fake Api:
     `json-server initialState.json`
 5. Corre el proyecto:
